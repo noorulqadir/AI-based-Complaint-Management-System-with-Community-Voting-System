@@ -1,3 +1,4 @@
+const { classifyComplaint } = require("../services/aiServices");
 const Notification = require("../models/Notification");
 const express = require("express");
 const Complaint = require("../models/Complaint");
@@ -12,18 +13,18 @@ router.post("/", protect, async (req, res) => {
 
     try {
 
-        const { title, description, category } = req.body;
+        const { title, description } = req.body;
 
-        if (!title || !description || !category) {
+        if (!title || !description)  {
             return res.status(400).json({
                 message: "All fields are required"
             });
         }
-
+        const predictedCategory = classifyComplaint(description);
         const complaint = await Complaint.create({
             title,
             description,
-            category,
+            category: predictedCategory,
             user: req.user._id,
             statusHistory: [
                 {
