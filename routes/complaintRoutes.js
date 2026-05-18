@@ -1,3 +1,4 @@
+const upload = require("../middleware/uploadMiddleware");
 const { classifyComplaint } = require("../services/aiServices");
 const Notification = require("../models/Notification");
 const express = require("express");
@@ -9,7 +10,7 @@ const router = express.Router();
 
 
 // Submit Complaint
-router.post("/", protect, async (req, res) => {
+router.post("/", protect, upload.single("image"), async (req, res) => {
 
     try {
 
@@ -25,6 +26,7 @@ router.post("/", protect, async (req, res) => {
             title,
             description,
             category: predictedCategory,
+            image: req.file ? req.file.filename : null,
             user: req.user._id,
             statusHistory: [
                 {
@@ -148,10 +150,29 @@ router.post("/:id/vote", protect, async (req, res) => {
     }
 });
 
-// Get All Public Complaints
+// Get All Complaints with Search & Filter
 router.get("/", protect, async (req, res) => {
     try {
-        const complaints = await Complaint.find()
+        const { category, status, keyword } = req.query;
+
+        let filter = {};
+
+        if (category) {
+            filter.category = category;
+        }
+
+        if (status) {
+            filter.status = status;
+        }
+
+        if (keyword) {
+            filter.$or = [
+                { title: { $regex: keyword, $options: "i" } },
+                { description: { $regex: keyword, $options: "i" } }
+            ];
+        }
+
+        const complaints = await Complaint.find(filter)
             .populate("user", "name email")
             .sort({ votes: -1, createdAt: -1 });
 

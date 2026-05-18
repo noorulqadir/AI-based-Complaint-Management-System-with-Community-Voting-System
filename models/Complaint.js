@@ -17,6 +17,10 @@ const complaintSchema = new mongoose.Schema({
         required: true
     },
 
+    image: {
+    type: String
+    },
+
     status: {
         type: String,
         enum: ["Pending", "In Progress", "Resolved"],

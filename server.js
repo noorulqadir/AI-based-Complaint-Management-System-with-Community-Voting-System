@@ -1,3 +1,5 @@
+const path = require("path");
+const adminRoutes = require("./routes/adminRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 const complaintRoutes = require("./routes/complaintRoutes");
 const authRoutes = require("./routes/authRoutes");
@@ -10,6 +12,8 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/complaints", complaintRoutes);
 app.use("/api/notifications", notificationRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.get("/", (req, res) => {
     res.send("Civic Desk Backend Running");
