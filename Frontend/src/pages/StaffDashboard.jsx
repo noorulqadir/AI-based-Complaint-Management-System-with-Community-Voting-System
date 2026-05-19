@@ -9,7 +9,7 @@ function StaffDashboard() {
     const token = localStorage.getItem("token");
 
     const response = await API.get("/complaints", {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` },
     });
 
     setComplaints(response.data.complaints);
@@ -21,7 +21,7 @@ function StaffDashboard() {
     await API.put(
       `/complaints/${id}/status`,
       { status },
-      { headers: { Authorization: `Bearer ${token}` } }
+      { headers: { Authorization: `Bearer ${token}` } },
     );
 
     fetchComplaints();

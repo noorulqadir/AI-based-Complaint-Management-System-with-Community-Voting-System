@@ -11,12 +11,11 @@ function MyComplaints() {
 
       const response = await API.get("/complaints/my", {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       setComplaints(response.data.complaints);
-
     } catch (error) {
       alert(error.response?.data?.message || "Failed to fetch complaints");
     }
@@ -41,29 +40,23 @@ function MyComplaints() {
               <p className="text-gray-600 mt-2">{complaint.description}</p>
 
               <div className="mt-3 flex gap-4 items-center">
+                <span>Category: {complaint.category}</span>
 
-  <span>
-    Category: {complaint.category}
-  </span>
-
-  <span
-    className={`px-3 py-1 rounded-full text-white text-sm font-semibold
+                <span
+                  className={`px-3 py-1 rounded-full text-white text-sm font-semibold
       ${
         complaint.status === "Pending"
           ? "bg-yellow-500"
           : complaint.status === "In Progress"
-          ? "bg-blue-500"
-          : "bg-green-600"
+            ? "bg-blue-500"
+            : "bg-green-600"
       }`}
-  >
-    {complaint.status}
-  </span>
+                >
+                  {complaint.status}
+                </span>
 
-  <span>
-    Votes: {complaint.votes}
-  </span>
-
-</div>
+                <span>Votes: {complaint.votes}</span>
+              </div>
 
               {complaint.image && (
                 <img

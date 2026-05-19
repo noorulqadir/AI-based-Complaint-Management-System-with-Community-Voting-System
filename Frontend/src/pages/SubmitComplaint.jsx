@@ -9,7 +9,7 @@ function SubmitComplaint() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    image: null
+    image: null,
   });
 
   const handleChange = (e) => {
@@ -34,13 +34,12 @@ function SubmitComplaint() {
       const response = await API.post("/complaints", data, {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data"
-        }
+          "Content-Type": "multipart/form-data",
+        },
       });
 
       alert(response.data.message);
       navigate("/my-complaints");
-
     } catch (error) {
       alert(error.response?.data?.message || "Complaint submission failed");
     }

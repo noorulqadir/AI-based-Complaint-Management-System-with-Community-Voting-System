@@ -9,7 +9,7 @@ function Notifications() {
     const token = localStorage.getItem("token");
 
     const response = await API.get("/notifications", {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` },
     });
 
     setNotifications(response.data.notifications);
@@ -18,9 +18,13 @@ function Notifications() {
   const markAsRead = async (id) => {
     const token = localStorage.getItem("token");
 
-    await API.put(`/notifications/${id}/read`, {}, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    await API.put(
+      `/notifications/${id}/read`,
+      {},
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    );
 
     fetchNotifications();
   };
@@ -38,7 +42,10 @@ function Notifications() {
 
         <div className="grid gap-4">
           {notifications.map((notification) => (
-            <div key={notification._id} className="bg-white p-5 rounded-xl shadow flex justify-between">
+            <div
+              key={notification._id}
+              className="bg-white p-5 rounded-xl shadow flex justify-between"
+            >
               <p>{notification.message}</p>
 
               {notification.isRead ? (

@@ -14,66 +14,64 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Login />} />
 
-  <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-  <Route path="/register" element={<Register />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
 
-  <Route
-    path="/dashboard"
-    element={
-      <ProtectedRoute>
-        <Dashboard />
-      </ProtectedRoute>
-    }
-  />
+        <Route
+          path="/submit-complaint"
+          element={
+            <ProtectedRoute>
+              <SubmitComplaint />
+            </ProtectedRoute>
+          }
+        />
 
-  <Route
-    path="/submit-complaint"
-    element={
-      <ProtectedRoute>
-        <SubmitComplaint />
-      </ProtectedRoute>
-    }
-  />
+        <Route
+          path="/my-complaints"
+          element={
+            <ProtectedRoute>
+              <MyComplaints />
+            </ProtectedRoute>
+          }
+        />
 
-  <Route
-    path="/my-complaints"
-    element={
-      <ProtectedRoute>
-        <MyComplaints />
-      </ProtectedRoute>
-    }
-  />
+        <Route
+          path="/notifications"
+          element={
+            <ProtectedRoute>
+              <Notifications />
+            </ProtectedRoute>
+          }
+        />
 
-  <Route
-    path="/notifications"
-    element={
-      <ProtectedRoute>
-        <Notifications />
-      </ProtectedRoute>
-    }
-  />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
 
-  <Route
-  path="/admin"
-  element={
-    <ProtectedRoute allowedRoles={["admin"]}>
-      <AdminDashboard />
-    </ProtectedRoute>
-  }
-/>
-
-  <Route
-  path="/staff"
-  element={
-    <ProtectedRoute allowedRoles={["staff", "admin"]}>
-      <StaffDashboard />
-    </ProtectedRoute>
-  }
-/>
-
-</Routes>
+        <Route
+          path="/staff"
+          element={
+            <ProtectedRoute allowedRoles={["staff", "admin"]}>
+              <StaffDashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 }

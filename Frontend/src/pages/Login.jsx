@@ -7,13 +7,13 @@ function Login() {
 
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -29,7 +29,6 @@ function Login() {
       alert(response.data.message);
 
       navigate("/dashboard");
-
     } catch (error) {
       alert(error.response?.data?.message || "Login failed");
     }
@@ -37,15 +36,11 @@ function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-xl shadow-lg w-[400px]"
       >
-
-        <h1 className="text-3xl font-bold text-center mb-6">
-          Login
-        </h1>
+        <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
 
         <input
           type="email"
@@ -73,9 +68,7 @@ function Login() {
             Register
           </Link>
         </p>
-
       </form>
-
     </div>
   );
 }

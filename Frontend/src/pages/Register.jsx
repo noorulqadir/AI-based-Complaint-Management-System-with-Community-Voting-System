@@ -3,53 +3,43 @@ import { useNavigate, Link } from "react-router-dom";
 import API from "../services/api";
 
 function Register() {
-
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
 
     try {
-
       const response = await API.post("/auth/register", formData);
 
       alert(response.data.message);
 
       navigate("/");
-
     } catch (error) {
-        console.log(error);
-        alert(error.response?.data?.message || "Something went wrong");
+      console.log(error);
+      alert(error.response?.data?.message || "Something went wrong");
     }
-
   };
 
   return (
-
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-xl shadow-lg w-[400px]"
       >
-
-        <h1 className="text-3xl font-bold text-center mb-6">
-          Register
-        </h1>
+        <h1 className="text-3xl font-bold text-center mb-6">Register</h1>
 
         <input
           type="text"
@@ -75,9 +65,7 @@ function Register() {
           onChange={handleChange}
         />
 
-        <button
-          className="w-full bg-black text-white p-3 rounded"
-        >
+        <button className="w-full bg-black text-white p-3 rounded">
           Register
         </button>
 
@@ -87,13 +75,9 @@ function Register() {
             Login
           </Link>
         </p>
-
       </form>
-
     </div>
-
   );
-
 }
 
 export default Register;
