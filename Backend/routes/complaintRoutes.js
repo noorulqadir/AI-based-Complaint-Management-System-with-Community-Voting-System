@@ -18,11 +18,12 @@ router.post("/", protect, upload.single("image"), async (req, res) => {
         message: "All fields are required",
       });
     }
-    const predictedCategory = classifyComplaint(description);
+    const aiResult = await classifyComplaint(description);
     const complaint = await Complaint.create({
       title,
       description,
-      category: predictedCategory,
+      category: aiResult.category,
+      department: aiResult.department,
       image: req.file ? req.file.filename : null,
       user: req.user._id,
       statusHistory: [
