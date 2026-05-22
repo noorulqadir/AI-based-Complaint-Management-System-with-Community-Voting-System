@@ -30,6 +30,9 @@ function Navbar() {
         <NavLink to="/notifications" className={linkStyle}>
           Notifications
         </NavLink>
+        <NavLink to="/chatbot" className={linkStyle}>
+          Chatbot
+        </NavLink>
 
         {(user?.role === "staff" || user?.role === "admin") && (
           <NavLink to="/staff" className={linkStyle}>

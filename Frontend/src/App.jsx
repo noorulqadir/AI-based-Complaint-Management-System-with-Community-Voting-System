@@ -9,6 +9,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Notifications from "./pages/Notifications";
 import StaffDashboard from "./pages/StaffDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Chatbot from "./pages/Chatbot";
 
 function App() {
   return (
@@ -68,6 +69,14 @@ function App() {
           element={
             <ProtectedRoute allowedRoles={["staff", "admin"]}>
               <StaffDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/chatbot"
+          element={
+            <ProtectedRoute>
+              <Chatbot />
             </ProtectedRoute>
           }
         />
