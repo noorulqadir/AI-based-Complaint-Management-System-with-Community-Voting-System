@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@theme{
+  --color-primary: #2c5d8c;
+  --color-background-light: #f9fafa;
+  --color-background-dark: #17191c;
+  --font-display: "Manrope", sans-serif;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
