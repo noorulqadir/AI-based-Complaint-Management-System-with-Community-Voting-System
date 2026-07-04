@@ -48,13 +48,22 @@ function Login() {
           </h1>
         </div>
         <nav className="hidden md:flex items-center gap-8">
-          <a className="text-sm font-medium hover:text-primary transition-colors" href="#">
+          <a
+            className="text-sm font-medium hover:text-primary transition-colors"
+            href="#"
+          >
             Home
           </a>
-          <a className="text-sm font-medium hover:text-primary transition-colors" href="#">
+          <a
+            className="text-sm font-medium hover:text-primary transition-colors"
+            href="#"
+          >
             About
           </a>
-          <a className="text-sm font-medium hover:text-primary transition-colors" href="#">
+          <a
+            className="text-sm font-medium hover:text-primary transition-colors"
+            href="#"
+          >
             Support
           </a>
           <button className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all">
@@ -85,7 +94,9 @@ function Login() {
 
           <div className="p-8">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-[#101519]">Welcome back</h2>
+              <h2 className="text-2xl font-bold text-[#101519]">
+                Welcome back
+              </h2>
               <p className="text-sm text-[#5b748b] mt-1">
                 Please enter your details to access your dashboard.
               </p>
@@ -111,7 +122,10 @@ function Login() {
                   <label className="text-[#101519] text-sm font-semibold">
                     Password
                   </label>
-                  <a className="text-primary text-xs font-bold hover:underline" href="#">
+                  <a
+                    className="text-primary text-xs font-bold hover:underline"
+                    href="#"
+                  >
                     Forgot Password?
                   </a>
                 </div>
@@ -165,13 +179,18 @@ function Login() {
                   className="w-5 h-5"
                   src="https://www.google.com/favicon.ico"
                 />
-                <span className="text-sm font-semibold text-[#101519]">Google</span>
+                <span className="text-sm font-semibold text-[#101519]">
+                  Google
+                </span>
               </button>
             </div>
 
             <p className="text-center mt-6 text-sm text-[#5b748b]">
               Don&apos;t have an account?{" "}
-              <Link to="/register" className="text-primary font-semibold hover:underline">
+              <Link
+                to="/register"
+                className="text-primary font-semibold hover:underline"
+              >
                 Register
               </Link>
             </p>
@@ -188,16 +207,27 @@ function Login() {
                 account_balance
               </span>
             </div>
-            <p className="text-sm text-[#5b748b]">© 2026 Civic Desk | All Rights Reserved</p>
+            <p className="text-sm text-[#5b748b]">
+              © 2026 Civic Desk | All Rights Reserved
+            </p>
           </div>
           <div className="flex gap-8">
-            <a className="text-xs font-semibold text-[#5b748b] hover:text-primary transition-colors" href="#">
+            <a
+              className="text-xs font-semibold text-[#5b748b] hover:text-primary transition-colors"
+              href="#"
+            >
               Privacy Policy
             </a>
-            <a className="text-xs font-semibold text-[#5b748b] hover:text-primary transition-colors" href="#">
+            <a
+              className="text-xs font-semibold text-[#5b748b] hover:text-primary transition-colors"
+              href="#"
+            >
               Terms of Service
             </a>
-            <a className="text-xs font-semibold text-[#5b748b] hover:text-primary transition-colors" href="#">
+            <a
+              className="text-xs font-semibold text-[#5b748b] hover:text-primary transition-colors"
+              href="#"
+            >
               Cookie Policy
             </a>
           </div>
