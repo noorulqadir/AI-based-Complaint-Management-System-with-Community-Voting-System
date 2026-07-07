@@ -39,7 +39,7 @@ function Register() {
       <header className="w-full border-b border-[#e9edf1] bg-white px-6 lg:px-40 py-3 flex items-center justify-between sticky top-0 z-50">
         <div className="flex items-center gap-3">
           <div className="bg-primary w-10 h-10 rounded flex items-center justify-center text-white">
-            <span className="material-symbols-outlined !text-2xl">
+            <span className="material-symbols-outlined text-2xl!">
               account_balance
             </span>
           </div>
@@ -73,7 +73,7 @@ function Register() {
       </header>
 
       {/* Main */}
-      <main className="flex-grow flex items-center justify-center p-6 bg-background-light">
+      <main className="grow flex items-center justify-center p-6 bg-background-light">
         <div className="w-full max-w-md bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
           {/* Tabs */}
           <div className="flex border-b border-[#d4dce3]">
@@ -209,10 +209,10 @@ function Register() {
 
       {/* Footer */}
       <footer className="w-full bg-white border-t border-[#e9edf1] py-8 px-6 lg:px-40">
-        <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
             <div className="bg-primary/10 w-8 h-8 rounded flex items-center justify-center text-primary/60">
-              <span className="material-symbols-outlined !text-lg">
+              <span className="material-symbols-outlined text-lg!">
                 account_balance
               </span>
             </div>

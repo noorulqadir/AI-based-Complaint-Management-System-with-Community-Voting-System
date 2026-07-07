@@ -52,7 +52,7 @@ function SubmitComplaint() {
       <div className="min-h-screen bg-gray-100 flex justify-center p-8">
         <form
           onSubmit={handleSubmit}
-          className="bg-white p-8 rounded-xl shadow-lg w-[500px]"
+          className="bg-white p-8 rounded-xl shadow-lg w-125"
         >
           <h1 className="text-3xl font-bold mb-6 text-center">
             Submit Complaint
